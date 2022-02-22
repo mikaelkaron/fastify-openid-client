@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v2.0.0...v2.1.0) (2022-02-22)
+
+
+### Features
+
+* separate plugin from index ([3f5855b](https://github.com/mikaelkaron/fastify-openid-client/commit/3f5855bd6ad1dddf35659fec48124f1c14813711))
+
 # [2.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v1.0.0...v2.0.0) (2022-02-22)
 
 
