@@ -21,6 +21,10 @@ export interface FastifyOpenIDClientPluginOptions {
         method: 'static';
         metadata: IssuerMetadata;
       }
+    | {
+        method: 'factory';
+        issuer: (this: FastifyInstance) => Promise<Issuer>;
+      }
   );
   client?: {
     name: string;
@@ -67,6 +71,9 @@ const createIssuer = async function (
 
     case 'static':
       return new Issuer(options.metadata);
+
+    case 'factory':
+      return await options.issuer.call(this);
   }
 };
 
