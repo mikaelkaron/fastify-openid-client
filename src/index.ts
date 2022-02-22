@@ -11,8 +11,7 @@ import {
 } from 'openid-client';
 
 export interface FastifyOpenIDClientPluginOptions {
-  name: string;
-  issuer:
+  issuer: { name?: string } & (
     | {
         method: 'discover' | 'webfinger';
         issuer: string;
@@ -21,8 +20,10 @@ export interface FastifyOpenIDClientPluginOptions {
     | {
         method: 'static';
         metadata: IssuerMetadata;
-      };
-  client: {
+      }
+  );
+  client?: {
+    name: string;
     metadata: ClientMetadata;
     jwks?: {
       keys: JWK[];
@@ -72,7 +73,7 @@ const createIssuer = async function (
 const createClient = function (
   this: FastifyInstance,
   issuer: Issuer,
-  client: FastifyOpenIDClientPluginOptions['client']
+  client: NonNullable<FastifyOpenIDClientPluginOptions['client']>
 ): Client {
   return new issuer.Client(client.metadata, client.jwks, client.options);
 };
@@ -80,13 +81,22 @@ const createClient = function (
 export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOptions> =
   fp(
     async (fastify, options) => {
-      const { name } = options;
       const issuer = await createIssuer.call(fastify, options.issuer);
       fastify.log.debug(issuer.metadata, 'OpenID issuer metadata');
-      const client = createClient.call(fastify, issuer, options.client);
-      fastify.log.debug(client.metadata, 'OpenID client metadata');
-      fastify.log.trace(`decorating \`fastify[${name}]\` with OpenID client`);
-      fastify.decorate(name, client);
+      if (options.issuer.name !== undefined) {
+        fastify.log.trace(
+          `decorating \`fastify[${options.issuer.name}]\` with OpenID issuer`
+        );
+        fastify.decorate(options.issuer.name, issuer);
+      }
+      if (options.client !== undefined) {
+        const client = createClient.call(fastify, issuer, options.client);
+        fastify.log.debug(client.metadata, 'OpenID client metadata');
+        fastify.log.trace(
+          `decorating \`fastify[${options.client.name}]\` with OpenID client`
+        );
+        fastify.decorate(options.client.name, client);
+      }
     },
     {
       fastify: '3.x',
