@@ -17,7 +17,7 @@ export type OpenIDCreateIssuerOptions =
       issuer: (this: FastifyInstance) => Promise<Issuer>;
     };
 
-export const createIssuer = async function (
+export const openIDCreateIssuer = async function (
   this: FastifyInstance,
   options: OpenIDCreateIssuerOptions
 ): Promise<Issuer> {

@@ -1,7 +1,7 @@
 import { FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
-import { createClient, OpenIDCreateClientOptions } from './client';
-import { createIssuer, OpenIDCreateIssuerOptions } from './issuer';
+import { openIDCreateClient, OpenIDCreateClientOptions } from './client';
+import { openIDCreateIssuer, OpenIDCreateIssuerOptions } from './issuer';
 
 export interface FastifyOpenIDClientPluginOptions {
   issuer: { name?: string } & OpenIDCreateIssuerOptions;
@@ -11,7 +11,7 @@ export interface FastifyOpenIDClientPluginOptions {
 export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOptions> =
   fp(
     async (fastify, options) => {
-      const issuer = await createIssuer.call(fastify, options.issuer);
+      const issuer = await openIDCreateIssuer.call(fastify, options.issuer);
       fastify.log.debug(issuer.metadata, 'OpenID issuer metadata');
       if (options.issuer.name !== undefined) {
         fastify.log.trace(
@@ -20,7 +20,7 @@ export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOpt
         fastify.decorate(options.issuer.name, issuer);
       }
       if (options.client !== undefined) {
-        const client = createClient.call(fastify, issuer, options.client);
+        const client = openIDCreateClient.call(fastify, issuer, options.client);
         fastify.log.debug(client.metadata, 'OpenID client metadata');
         fastify.log.trace(
           `decorating \`fastify[${options.client.name}]\` with OpenID client`

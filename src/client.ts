@@ -11,7 +11,7 @@ export interface OpenIDCreateClientOptions {
   options?: ClientOptions;
 }
 
-export const createClient = function (
+export const openIDCreateClient = function (
   this: FastifyInstance,
   issuer: Issuer,
   { metadata, jwks, options }: OpenIDCreateClientOptions
