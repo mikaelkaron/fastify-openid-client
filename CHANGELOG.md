@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v2.1.0...v3.0.0) (2022-09-25)
+
+
+### Bug Fixes
+
+* auto-fix eslint ([399876d](https://github.com/mikaelkaron/fastify-openid-client/commit/399876de1f49835a5104de56a70c5dbb9f83603c))
+
+
+### Features
+
+* bump deps ([39d9d54](https://github.com/mikaelkaron/fastify-openid-client/commit/39d9d5428171754952c0a5d7ba2ae833ac002ace))
+
+
+### BREAKING CHANGES
+
+* This bumps `fastify@4`
+
 # [2.1.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v2.0.0...v2.1.0) (2022-02-22)
 
 
