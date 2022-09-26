@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/mikaelkaron/fastify-openid-client/compare/v3.0.0...v3.0.1) (2022-09-26)
+
+
+### Bug Fixes
+
+* move `@types/async-retry` from `devDependencies` to `dependencies` ([6998b8b](https://github.com/mikaelkaron/fastify-openid-client/commit/6998b8beb482c857ac38b50d66cc8c70c37e8a6c))
+
 # [3.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v2.1.0...v3.0.0) (2022-09-25)
 
 
