@@ -26,25 +26,25 @@
   },
   "homepage": "https://github.com/mikaelkaron/fastify-openid-client#readme",
   "dependencies": {
-    "@types/async-retry": "^1.4.5",
-    "async-retry": "^1.3.3",
-    "fastify": "^4.6.0",
-    "fastify-plugin": "^4.2.1",
-    "jose": "^4.9.3",
-    "openid-client": "^5.1.9"
+    "@types/async-retry": "^1",
+    "async-retry": "^1",
+    "fastify": "^4",
+    "fastify-plugin": "^4",
+    "jose": "^4",
+    "openid-client": "^5"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.6",
-    "@semantic-release/npm": "^9.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "@tsconfig/node17": "^1.0.2",
-    "eslint": "^8.23.1",
-    "eslint-config-standard-with-typescript": "^23.0.0",
-    "semantic-release": "^19.0.5",
-    "shx": "^0.3.4",
-    "typescript": "^4.8.3"
+    "@semantic-release/changelog": "^6",
+    "@semantic-release/commit-analyzer": "^10",
+    "@semantic-release/git": "^10",
+    "@semantic-release/github": "^9",
+    "@semantic-release/npm": "^10",
+    "@semantic-release/release-notes-generator": "^11",
+    "@tsconfig/node20": "^1",
+    "eslint": "^8",
+    "eslint-config-standard-with-typescript": "^36",
+    "semantic-release": "^21",
+    "shx": "^0",
+    "typescript": "^5"
   }
 }
