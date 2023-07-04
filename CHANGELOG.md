@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v3.0.1...v4.0.0) (2023-07-04)
+
+
+### Build System
+
+* **package:** bump deps ([dfec18d](https://github.com/mikaelkaron/fastify-openid-client/commit/dfec18d6cf9de928a8256b450f2968b7f3fd8216))
+
+
+### BREAKING CHANGES
+
+* **package:** A lot of deps had major version updates, bump accordingly
+
 ## [3.0.1](https://github.com/mikaelkaron/fastify-openid-client/compare/v3.0.0...v3.0.1) (2022-09-26)
 
 
