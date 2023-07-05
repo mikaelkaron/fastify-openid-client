@@ -38,7 +38,6 @@
   "dependencies": {
     "@types/async-retry": "^1",
     "async-retry": "^1",
-    "fastify": "^4",
     "fastify-plugin": "^4",
     "jose": "^4",
     "openid-client": "^5"
@@ -53,6 +52,7 @@
     "@tsconfig/node20": "^1",
     "eslint": "^8",
     "eslint-config-standard-with-typescript": "^36",
+    "fastify": "^4",
     "semantic-release": "^21",
     "shx": "^0",
     "typescript": "^5"
