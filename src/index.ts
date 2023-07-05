@@ -1,4 +1,4 @@
-export * from './client'
-export * from './issuer'
-export * from './plugin'
-export { default } from './plugin'
+export * from './client.js'
+export * from './issuer.js'
+export * from './plugin.js'
+export { default } from './plugin.js'

@@ -1,7 +1,7 @@
 import { type FastifyPluginAsync } from 'fastify'
 import fp from 'fastify-plugin'
-import { openIDCreateClient, type OpenIDCreateClientOptions } from './client'
-import { openIDCreateIssuer, type OpenIDCreateIssuerOptions } from './issuer'
+import { openIDCreateClient, type OpenIDCreateClientOptions } from './client.js'
+import { openIDCreateIssuer, type OpenIDCreateIssuerOptions } from './issuer.js'
 
 export interface FastifyOpenIDClientPluginOptions {
   issuer: { decorator?: string | symbol } & OpenIDCreateIssuerOptions

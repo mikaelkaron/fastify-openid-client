@@ -2,8 +2,15 @@
   "name": "fastify-openid-client",
   "version": "5.0.0",
   "description": "Fastify plugin for openid-client",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js",
+    "./issuer": "./dist/issuer.js",
+    "./plugin": "./dist/plugin.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --declaration -p tsconfig.json",
