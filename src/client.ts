@@ -1,6 +1,6 @@
-import { FastifyInstance } from 'fastify'
-import { JWK } from 'jose'
-import { Client, ClientMetadata, ClientOptions, Issuer } from 'openid-client'
+import { type FastifyInstance } from 'fastify'
+import { type JWK } from 'jose'
+import { type Client, type ClientMetadata, type ClientOptions, type Issuer } from 'openid-client'
 
 export interface OpenIDCreateClientOptions {
   name: string
@@ -11,10 +11,15 @@ export interface OpenIDCreateClientOptions {
   options?: ClientOptions
 }
 
-export const openIDCreateClient = function (
+export type OpenIDCreateClient = (
   this: FastifyInstance,
   issuer: Issuer,
-  { metadata, jwks, options }: OpenIDCreateClientOptions
-): Client {
+  options: OpenIDCreateClientOptions
+) => Client
+
+export const openIDCreateClient: OpenIDCreateClient = function (
+  issuer,
+  { metadata, jwks, options }
+) {
   return new issuer.Client(metadata, jwks, options)
 }

@@ -1,6 +1,6 @@
-import retry, { Options } from 'async-retry'
-import { FastifyInstance } from 'fastify'
-import { Issuer, IssuerMetadata } from 'openid-client'
+import retry, { type Options } from 'async-retry'
+import { type FastifyInstance } from 'fastify'
+import { Issuer, type IssuerMetadata } from 'openid-client'
 
 export type OpenIDCreateIssuerOptions =
   | {
@@ -17,10 +17,14 @@ export type OpenIDCreateIssuerOptions =
     issuer: (this: FastifyInstance) => Promise<Issuer>
   }
 
-export const openIDCreateIssuer = async function (
+export type OpenIDCreateIssuer = (
   this: FastifyInstance,
   options: OpenIDCreateIssuerOptions
-): Promise<Issuer> {
+) => Promise<Issuer>
+
+export const openIDCreateIssuer: OpenIDCreateIssuer = async function (
+  options
+) {
   switch (options.method) {
     case 'discover': {
       this.log.info(`OpenID discovery started for ${options.issuer}`)

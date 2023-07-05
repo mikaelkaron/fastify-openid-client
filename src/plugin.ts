@@ -1,11 +1,11 @@
-import { FastifyPluginAsync } from 'fastify'
+import { type FastifyPluginAsync } from 'fastify'
 import fp from 'fastify-plugin'
-import { openIDCreateClient, OpenIDCreateClientOptions } from './client'
-import { openIDCreateIssuer, OpenIDCreateIssuerOptions } from './issuer'
+import { openIDCreateClient, type OpenIDCreateClientOptions } from './client'
+import { openIDCreateIssuer, type OpenIDCreateIssuerOptions } from './issuer'
 
 export interface FastifyOpenIDClientPluginOptions {
-  issuer: { name?: string } & OpenIDCreateIssuerOptions
-  client?: { name: string } & OpenIDCreateClientOptions
+  issuer: { decorator?: string | symbol } & OpenIDCreateIssuerOptions
+  client?: { decorator: string | symbol } & OpenIDCreateClientOptions
 }
 
 export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOptions> =
@@ -13,19 +13,19 @@ export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOpt
     async (fastify, options) => {
       const issuer = await openIDCreateIssuer.call(fastify, options.issuer)
       fastify.log.debug(issuer.metadata, 'OpenID issuer metadata')
-      if (options.issuer.name !== undefined) {
+      if (options.issuer.decorator !== undefined) {
         fastify.log.trace(
-          `decorating \`fastify[${options.issuer.name}]\` with OpenID issuer`
+          `decorating \`fastify[${String(options.issuer.decorator)}]\` with OpenID issuer`
         )
-        fastify.decorate(options.issuer.name, issuer)
+        fastify.decorate(options.issuer.decorator, issuer)
       }
       if (options.client !== undefined) {
         const client = openIDCreateClient.call(fastify, issuer, options.client)
         fastify.log.debug(client.metadata, 'OpenID client metadata')
         fastify.log.trace(
-          `decorating \`fastify[${options.client.name}]\` with OpenID client`
+          `decorating \`fastify[${String(options.client.decorator)}]\` with OpenID client`
         )
-        fastify.decorate(options.client.name, client)
+        fastify.decorate(options.client.decorator, client)
       }
     },
     {
@@ -33,3 +33,5 @@ export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOpt
       name: 'fastify-openid-client'
     }
   )
+
+export default openIDClientPlugin
