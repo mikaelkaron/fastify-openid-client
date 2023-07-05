@@ -3,7 +3,6 @@ import { type JWK } from 'jose'
 import { type Client, type ClientMetadata, type ClientOptions, type Issuer } from 'openid-client'
 
 export interface OpenIDCreateClientOptions {
-  name: string
   metadata: ClientMetadata
   jwks?: {
     keys: JWK[]
