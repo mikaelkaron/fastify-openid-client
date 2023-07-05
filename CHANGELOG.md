@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v4.0.0...v5.0.0) (2023-07-05)
+
+
+### Features
+
+* revamp types and options ([78a7bf2](https://github.com/mikaelkaron/fastify-openid-client/commit/78a7bf23d17ab95c29d489057c5210eaa9583bbd))
+
+
+### BREAKING CHANGES
+
+* `name` is now called `decorator` and accepts `string | symbol`
+
 # [4.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v3.0.1...v4.0.0) (2023-07-04)
 
 
