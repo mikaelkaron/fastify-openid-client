@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/mikaelkaron/fastify-openid-client.git"
   },
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "fastify",
     "openid"
