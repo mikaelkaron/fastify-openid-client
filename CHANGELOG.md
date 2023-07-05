@@ -1,3 +1,22 @@
+# [6.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v5.0.0...v6.0.0) (2023-07-05)
+
+
+### Bug Fixes
+
+* don't leak `decorator` outside plugin ([169cc31](https://github.com/mikaelkaron/fastify-openid-client/commit/169cc319df44a9c2efccd9f967e5b1112da3246e))
+* remove unused `name` from `OpenIDCreateClientOptions` ([b90180f](https://github.com/mikaelkaron/fastify-openid-client/commit/b90180f788ba31bba5406dfd16ce7a362e8c0b8b))
+
+
+### Features
+
+* **package:** package as `ESM` ([d157865](https://github.com/mikaelkaron/fastify-openid-client/commit/d15786594433e453262f5ba63086f8b064ad2d2f))
+
+
+### BREAKING CHANGES
+
+* exported `OpenIDCreateClientOptions` no longer has the `name` property
+* **package:** This package is now `ESM` only
+
 # [5.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v4.0.0...v5.0.0) (2023-07-05)
 
 
