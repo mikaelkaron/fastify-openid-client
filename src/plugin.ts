@@ -34,4 +34,4 @@ export const openIDClientPlugin: FastifyPluginAsync<FastifyOpenIDClientPluginOpt
 export default fp(openIDClientPlugin, {
   fastify: '4.x',
   name: 'fastify-openid-client'
-});
+})
