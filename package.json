@@ -1,6 +1,6 @@
 {
   "name": "fastify-openid-client",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Fastify plugin for openid-client",
   "type": "module",
   "module": "./dist/index.js",

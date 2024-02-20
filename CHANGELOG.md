@@ -1,3 +1,20 @@
+# [7.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v6.0.0...v7.0.0) (2024-02-20)
+
+
+### Bug Fixes
+
+* **package:** make `fastify` a development dependency ([5358d5f](https://github.com/mikaelkaron/fastify-openid-client/commit/5358d5f0742333c7eabd255cd5aa72ed35fba311))
+
+
+### Features
+
+* export `openIDClientPlugin` and `fp(openIDClientPlugin)` separately for `fastify-plugin@4.5.1` compatibility. ([7ee7cd5](https://github.com/mikaelkaron/fastify-openid-client/commit/7ee7cd59208c4e67ec3a240fee7204e04446bd4c))
+
+
+### BREAKING CHANGES
+
+* This changes the default export for the plugin. Should be safe to upgrade for most users that use the `default` export.
+
 # [6.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v5.0.0...v6.0.0) (2023-07-05)
 
 
