@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v7.0.0...v8.0.0) (2024-10-15)
+
+
+### chore
+
+* **package:** bump `fastify` and `fastify-plugin` to 5.x ([d88141a](https://github.com/mikaelkaron/fastify-openid-client/commit/d88141a682515d505c6c208109dfaeaaf86300cd))
+
+
+### BREAKING CHANGES
+
+* **package:** We now require fastify `5.x` to use this plugin
+
 # [7.0.0](https://github.com/mikaelkaron/fastify-openid-client/compare/v6.0.0...v7.0.0) (2024-02-20)
 
 

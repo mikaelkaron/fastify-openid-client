@@ -1,6 +1,6 @@
 {
   "name": "fastify-openid-client",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "Fastify plugin for openid-client",
   "type": "module",
   "module": "./dist/index.js",
@@ -23,8 +23,13 @@
     "type": "git",
     "url": "https://github.com/mikaelkaron/fastify-openid-client.git"
   },
-  "files": ["dist/"],
-  "keywords": ["fastify", "openid"],
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "fastify",
+    "openid"
+  ],
   "author": "Mikael Karon <mikael@karon.se>",
   "license": "MIT",
   "bugs": {
