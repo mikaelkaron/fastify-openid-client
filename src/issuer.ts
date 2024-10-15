@@ -1,30 +1,28 @@
 import retry, { type Options } from 'async-retry'
-import { type FastifyInstance } from 'fastify'
+import type { FastifyInstance } from 'fastify'
 import { Issuer, type IssuerMetadata } from 'openid-client'
 
 export type OpenIDCreateIssuerOptions =
   | {
-    method: 'discover' | 'webfinger'
-    issuer: string
-    retry?: Options
-  }
+      method: 'discover' | 'webfinger'
+      issuer: string
+      retry?: Options
+    }
   | {
-    method: 'static'
-    metadata: IssuerMetadata
-  }
+      method: 'static'
+      metadata: IssuerMetadata
+    }
   | {
-    method: 'factory'
-    issuer: (this: FastifyInstance) => Promise<Issuer>
-  }
+      method: 'factory'
+      issuer: (this: FastifyInstance) => Promise<Issuer>
+    }
 
 export type OpenIDCreateIssuer = (
   this: FastifyInstance,
   options: OpenIDCreateIssuerOptions
 ) => Promise<Issuer>
 
-export const openIDCreateIssuer: OpenIDCreateIssuer = async function (
-  options
-) {
+export const openIDCreateIssuer: OpenIDCreateIssuer = async function (options) {
   switch (options.method) {
     case 'discover': {
       this.log.info(`OpenID discovery started for ${options.issuer}`)
